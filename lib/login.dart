@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:animated_button/animated_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:to_do/signup.dart';
 
 import 'home.dart';
 
-class loginpage extends StatefulWidget {
-  const loginpage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<loginpage> createState() => _loginpageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _loginpageState extends State<loginpage> {
+class _LoginPageState extends State<LoginPage> {
   late String _uname;
   String _pass = "";
   String _validation = "";
@@ -30,7 +29,7 @@ class _loginpageState extends State<loginpage> {
 
     setState(() {
       if (_uname == uname && _pass == pass) {
-        Navigator.push(context, SizeTransition5(Home()));
+        Navigator.push(context, SizeTransition5(const Home()));
       } else {
         setState(() {
           _validation = "Username or Password is Wrong";
@@ -61,7 +60,7 @@ class _loginpageState extends State<loginpage> {
               height: 50,
               child: Text(
                 _validation,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.red,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
@@ -74,7 +73,7 @@ class _loginpageState extends State<loginpage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              style: TextStyle(fontSize: 25, color: Colors.brown),
+              style: const TextStyle(fontSize: 25, color: Colors.brown),
               onChanged: (value) {
                 setState(() {
                   _uname = value;
@@ -92,7 +91,7 @@ class _loginpageState extends State<loginpage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              style: TextStyle(fontSize: 25, color: Colors.brown),
+              style: const TextStyle(fontSize: 25, color: Colors.brown),
               onChanged: (value) {
                 _pass = value;
               },
@@ -101,7 +100,7 @@ class _loginpageState extends State<loginpage> {
               height: 50,
             ),
             AnimatedButton(
-              child: Text(
+              child: const Text(
                 "Log in",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
@@ -126,8 +125,8 @@ class SizeTransition5 extends PageRouteBuilder {
   SizeTransition5(this.page)
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
-          transitionDuration: Duration(milliseconds: 1000),
-          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 1000),
+          reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
             animation = CurvedAnimation(
                 curve: Curves.fastLinearToSlowEaseIn,

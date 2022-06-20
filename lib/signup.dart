@@ -4,14 +4,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do/login.dart';
 import 'package:to_do/main.dart';
 
-class signup extends StatefulWidget {
-  const signup({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<signup> createState() => _signupState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _signupState extends State<signup> {
+class _SignUpState extends State<SignUp> {
 
   late String _uname;
   String _pass = "";
@@ -22,7 +22,7 @@ class _signupState extends State<signup> {
     prefs.setString("user", _uname);
     prefs.setString("pass", _pass);
     setState(() {
-      Navigator.push(context, SizeTransition5(loginpage()));
+      Navigator.push(context, SizeTransition5(const LoginPage()));
     });
   }
 
@@ -52,7 +52,7 @@ class _signupState extends State<signup> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              style: TextStyle(fontSize: 25, color: Colors.brown),
+              style: const TextStyle(fontSize: 25, color: Colors.brown),
               onChanged: (value) {
                 setState(() {
                   _uname = value;
@@ -70,7 +70,7 @@ class _signupState extends State<signup> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              style: TextStyle(fontSize: 25, color: Colors.brown),
+              style: const TextStyle(fontSize: 25, color: Colors.brown),
               onChanged: (value) {
                 _pass = value;
               },
@@ -79,7 +79,7 @@ class _signupState extends State<signup> {
               height: 50,
             ),
             AnimatedButton(
-              child: Text(
+              child: const Text(
                 "Sign up",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
@@ -88,7 +88,7 @@ class _signupState extends State<signup> {
               enabled: true,
               shadowDegree: ShadowDegree.dark,
             ),
-            Container(
+            SizedBox(
               height: 50,
               child: Text(_validation),
             )
@@ -97,23 +97,6 @@ class _signupState extends State<signup> {
       ),
     );
   }
-
-  // void _validate() {
-  //   if (_uname == "Anand" && _pass == "Arp") {
-  //     print(_uname);
-  //     print(_pass);
-  //     setState(() {
-  //       Navigator.push(context, SizeTransition5(login()));
-  //     });
-  //   } else {
-  //     print("Else");
-  //     print(_uname);
-  //     print(_pass);
-  //     setState(() {
-  //       _validation = "Invalid User";
-  //     });
-  //   }
-  // }
 }
 
 class SizeTransition5 extends PageRouteBuilder {
@@ -122,8 +105,8 @@ class SizeTransition5 extends PageRouteBuilder {
   SizeTransition5(this.page)
       : super(
     pageBuilder: (context, animation, anotherAnimation) => page,
-    transitionDuration: Duration(milliseconds: 1000),
-    reverseTransitionDuration: Duration(milliseconds: 200),
+    transitionDuration: const Duration(milliseconds: 1000),
+    reverseTransitionDuration: const Duration(milliseconds: 200),
     transitionsBuilder: (context, animation, anotherAnimation, child) {
       animation = CurvedAnimation(
           curve: Curves.fastLinearToSlowEaseIn,

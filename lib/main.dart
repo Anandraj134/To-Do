@@ -35,7 +35,7 @@ class first extends StatelessWidget {
           ),
         Container(
               height: 40,
-          child: Text(
+          child: const Text(
             "Already have Account?",
             style: TextStyle(
                 color: Colors.blueAccent,
@@ -44,12 +44,12 @@ class first extends StatelessWidget {
           ),
             ),
             AnimatedButton(
-              child: Text(
+              child: const Text(
                 "Log in",
                 style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
               ),
               onPressed: () {
-                Navigator.push(context, SizeTransition5(loginpage()));
+                Navigator.push(context, SizeTransition5(LoginPage()));
               },
               color: Colors.brown,
               enabled: true,
@@ -60,7 +60,7 @@ class first extends StatelessWidget {
             ),
             Container(
               height: 40,
-              child: Text(
+              child: const Text(
                 "Don't have Account?",
                 style: TextStyle(
                     color: Colors.blueAccent,
@@ -69,12 +69,12 @@ class first extends StatelessWidget {
               ),
             ),
             AnimatedButton(
-              child: Text(
+              child: const Text(
                 "Sign up",
                 style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
               ),
               onPressed: () {
-                Navigator.push(context, SizeTransition5(signup()));
+                Navigator.push(context, SizeTransition5(const SignUp()));
               },
               color: Colors.brown,
               enabled: true,
@@ -94,8 +94,8 @@ class SizeTransition5 extends PageRouteBuilder {
   SizeTransition5(this.page)
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
-          transitionDuration: Duration(milliseconds: 1000),
-          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 1000),
+          reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
             animation = CurvedAnimation(
                 curve: Curves.fastLinearToSlowEaseIn,
